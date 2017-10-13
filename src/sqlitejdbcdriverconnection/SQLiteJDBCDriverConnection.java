@@ -47,10 +47,10 @@ public class SQLiteJDBCDriverConnection {
     }
     
     public static void createNewTable(){
-        String sql = "CREATE TABLE IF NOT EXISTS miTabla ( \n" 
-                    +"id integer PRIMARY KEY, \n"
-                    +"name text NOT NULL, \n"
-                    +"capacity real \n"
+        String sql = "CREATE TABLE IF NOT EXISTS miTabla (" 
+                    +"id integer PRIMARY KEY,"
+                    +"name text NOT NULL,"
+                    +"capacity real"
                     +");";
         try (Connection conn = connect();
             Statement stmt = conn.createStatement()){
@@ -58,12 +58,11 @@ public class SQLiteJDBCDriverConnection {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-    }
-    
+    } 
+ 
     public static void main(String[] args) {
         //connect();
         //createNewDatabase("nuevaBase");
         createNewTable();
     }
-    
 }
